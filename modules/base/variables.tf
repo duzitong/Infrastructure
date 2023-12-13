@@ -157,7 +157,7 @@ variable "serverPorts" {
 variable "enableInsights" {
   description = "Whether to enable Azure Monitor Insights."
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "enableAlerts" {
