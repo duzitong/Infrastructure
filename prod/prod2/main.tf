@@ -3,8 +3,8 @@ module "base" {
   location        = "eastus"
   siteId          = "prod2"
   domainFqdn      = "jumpstart.local"
-  startingAddress = "192.168.1.116"
-  endingAddress   = "192.168.1.216"
+  startingAddress = "192.168.1.15"
+  endingAddress   = "192.168.1.115"
   defaultGateway  = "192.168.1.1"
   dnsServers      = ["192.168.1.254"]
   adouPath        = "OU=prod2,DC=jumpstart,DC=local"
@@ -12,12 +12,12 @@ module "base" {
   domainServerIP  = "192.168.1.1"
   servers = [
     {
-      name        = "ProdHOST3",
-      ipv4Address = "192.168.1.22"
+      name        = "AzSHOST1",
+      ipv4Address = "192.168.1.12"
     },
     {
-      name        = "ProdHOST4",
-      ipv4Address = "192.168.1.23"
+      name        = "AzSHOST2",
+      ipv4Address = "192.168.1.13"
     }
   ]
   managementAdapters = ["FABRIC", "FABRIC2"]
@@ -33,6 +33,12 @@ module "base" {
       vlanId             = "712"
     }
   ]
+  virtualHostIp = "10.0.0.7"
+  dcPort        = 6985
+  serverPorts = {
+    "AzSHOST1" = 15985,
+    "AzSHOST2" = 25985
+  }
   subId                  = var.subscriptionId
   domainAdminUser        = var.domainAdminUser
   domainAdminPassword    = var.domainAdminPassword

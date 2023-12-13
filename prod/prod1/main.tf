@@ -12,11 +12,11 @@ module "base" {
   domainServerIP  = "192.168.1.1"
   servers = [
     {
-      name        = "ProdHOST1",
+      name        = "AzSHOST1",
       ipv4Address = "192.168.1.12"
     },
     {
-      name        = "ProdHOST2",
+      name        = "AzSHOST2",
       ipv4Address = "192.168.1.13"
     }
   ]
@@ -33,6 +33,12 @@ module "base" {
       vlanId             = "712"
     }
   ]
+  virtualHostIp = "10.0.0.6"
+  dcPort        = 6985
+  serverPorts = {
+    "AzSHOST1" = 15985,
+    "AzSHOST2" = 25985
+  }
   subId                  = var.subscriptionId
   domainAdminUser        = var.domainAdminUser
   domainAdminPassword    = var.domainAdminPassword
