@@ -163,7 +163,7 @@ variable "enableInsights" {
 variable "enableAlerts" {
   description = "Whether to enable Azure Monitor Alerts."
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "enableVM" {
